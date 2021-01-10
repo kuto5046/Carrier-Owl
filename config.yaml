@@ -3,9 +3,11 @@ subject: 'cat:cs.*'
 
 # 検索キーワード
 keywords:
-        kaggle: 3
-        resnet: 3
-        anomaly detection: 1
-
+        sound: 2
+        audio: 2
+        noisy label: 1
+        rainforcement learning: 3
+        transformer: 2
+    
 # 通知の閾値
 score_threshold: 0
