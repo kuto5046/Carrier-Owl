@@ -12,3 +12,6 @@ keywords:
   didi: 1
 # 通知の閾値
 score_threshold: 1
+
+# 1日に通知する最大件数(制限したくない場合は大きな数字を入れる)
+max_result: 3

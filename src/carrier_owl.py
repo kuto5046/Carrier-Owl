@@ -76,7 +76,7 @@ def send2app(text: str, slack_id: str, line_token: str) -> None:
         requests.post(line_notify_api, headers=headers, data=data)
 
 
-def notify(results: list, slack_id: str, line_token: str) -> None:
+def notify(results: list, slack_id: str, line_token: str, max_result: int) -> None:
     # 通知
     star = '*'*80
     today = datetime.date.today()
@@ -84,22 +84,25 @@ def notify(results: list, slack_id: str, line_token: str) -> None:
     text = f'{star}\n \t \t {today}\tnum of articles = {n_articles}\n{star}'
     send2app(text, slack_id, line_token)
     # descending
+    count = 0
     for result in sorted(results, reverse=True, key=lambda x: x.score):
-        url = result.url
-        title = result.title
-        abstract = result.abstract
-        word = result.words
-        score = result.score
+        if (count < max_result):
+            url = result.url
+            title = result.title
+            abstract = result.abstract
+            word = result.words
+            score = result.score
 
-        text = f'\n score: `{score}`'\
-               f'\n hit keywords: `{word}`'\
-               f'\n url: {url}'\
-               f'\n title:    {title}'\
-               f'\n abstract:'\
-               f'\n \t {abstract}'\
-               f'\n {star}'
+            text = f'\n score: `{score}`'\
+                f'\n hit keywords: `{word}`'\
+                f'\n url: {url}'\
+                f'\n title:    {title}'\
+                f'\n abstract:'\
+                f'\n \t {abstract}'\
+                f'\n {star}'
 
-        send2app(text, slack_id, line_token)
+            send2app(text, slack_id, line_token)
+            count += 1
 
 
 def get_translated_text(from_lang: str, to_lang: str, from_text: str) -> str:
@@ -166,6 +169,7 @@ def main():
     subject = config['subject']
     keywords = config['keywords']
     score_threshold = float(config['score_threshold'])
+    max_result = int(config['max_result'])
 
     day_before_yesterday = datetime.datetime.today() - datetime.timedelta(days=2)
     day_before_yesterday_str = day_before_yesterday.strftime('%Y%m%d')
@@ -181,7 +185,7 @@ def main():
 
     slack_id = os.getenv("SLACK_ID") or args.slack_id
     line_token = os.getenv("LINE_TOKEN") or args.line_token
-    notify(results, slack_id, line_token)
+    notify(results, slack_id, line_token, max_result)
 
 
 if __name__ == "__main__":
