@@ -3,11 +3,10 @@ subject: 'cat:cs.*'
 
 # 検索キーワード
 keywords:
-        sound: 2
-        audio: 2
-        noisy label: 1
-        rainforcement learning: 3
-        transformer: 2
-    
+  reinforcement learning: 3
+  taxi: 1
+  lyft: 1
+  uber: 1
+  didi: 1
 # 通知の閾値
-score_threshold: 0
+score_threshold: 1
