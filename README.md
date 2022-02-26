@@ -3,7 +3,10 @@
 # Carrier Owl  
 
 <img src='./data/images/carrier-owl.png' width='50' text-align='center'>
-伝書フクロウという意味です。
+伝書フクロウという意味です。  
+
+不具合などがあればTwitterの [#carrier_owl](https://twitter.com/search?q=#carrier_owl&src=typed_query) で情報共有を行っています。
+
 
 ## About Carrier Owl
 
@@ -13,7 +16,7 @@
 通知の際に、abstractをDeepLで翻訳しています。  
 **導入に必要なのはgithubアカウントだけです。10minぐらいで設定は終わります！！**  
 スコアは、ターゲットとなるキーワードに重み付けをして決まります。(例 resnet=5, kaggle=3, audio=3)    
-ユーザーが**好きな領域**、**好きなキーワード**を登録することで、通知される論文は変わります。
+ユーザーが**好きな領域**、**好きなキーワード**を登録することで、通知される論文は変わります。  
 
 
 - 登録キーワード例
@@ -124,7 +127,7 @@
 
 
 7. **通知タイミングの調整**
-    - デフォルト設定では、日本時間の平日9時50分に通知されるようになっています。この設定で問題ない方はこれで設定完了です。
+    - デフォルト設定では、日本時間の水木金土日の9時50分に通知されるようになっています。二日前のarxivを通知している＆土日にarxivが更新されないという理由からこの設定になっています。この設定で問題ない方はこれで設定完了です。
     - 通知タイミングのカスタマイズは、[こちら](https://github.com/fkubota/Carrier-Owl/blob/93e83a4ab7a67b127a3be2a2f1059dbed7dadbf0/.github/workflows/cron.yml#L6)を変更することで可能です。
 
 8. **push** 

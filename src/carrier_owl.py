@@ -1,4 +1,4 @@
-import chromedriver_binary   # これは必ず入れる
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import os
@@ -53,8 +53,8 @@ def search_keyword(
             title_trans = get_translated_text('ja', 'en', title)
             abstract = abstract.replace('\n', '')
             abstract_trans = get_translated_text('ja', 'en', abstract)
-            abstract_trans = textwrap.wrap(abstract_trans, 40)  # 40行で改行
-            abstract_trans = '\n'.join(abstract_trans)
+            # abstract_trans = textwrap.wrap(abstract_trans, 40)  # 40行で改行
+            # abstract_trans = '\n'.join(abstract_trans)
             result = Result(
                     url=url, title=title_trans, abstract=abstract_trans,
                     score=score, words=hit_keywords)
@@ -121,7 +121,7 @@ def get_translated_text(from_lang: str, to_lang: str, from_text: str) -> str:
     options.add_argument('--headless')
 
     # ブラウザーを起動
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
     driver.get(url)
     driver.implicitly_wait(10)  # 見つからないときは、10秒まで待つ
 
