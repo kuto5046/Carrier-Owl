@@ -6,6 +6,7 @@ keywords:
   reinforcement learning: 3
   graph neural network: 3
   mobility: 1
+  game theory: 1
   taxi: 1
   lyft: 1
   uber: 1
@@ -14,4 +15,4 @@ keywords:
 score_threshold: 1
 
 # 1日に通知する最大件数(制限したくない場合は大きな数字を入れる)
-max_result: 3
+max_result: 5
