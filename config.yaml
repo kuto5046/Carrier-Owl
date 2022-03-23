@@ -5,6 +5,8 @@ subject: 'cat:cs.*'
 keywords:
   reinforcement learning: 3
   graph neural network: 3
+  recsys: 3
+  recommendation: 3
   mobility: 1
   game theory: 1
   taxi: 1
