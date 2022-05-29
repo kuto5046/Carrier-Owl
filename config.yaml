@@ -5,16 +5,13 @@ subject: 'cat:cs.*'
 keywords:
   reinforcement learning: 3
   graph neural network: 3
-  recsys: 3
-  recommendation: 3
   mobility: 1
-  game theory: 1
   taxi: 1
   lyft: 1
   uber: 1
   didi: 1
 # 通知の閾値
-score_threshold: 1
+score_threshold: 4
 
 # 1日に通知する最大件数(制限したくない場合は大きな数字を入れる)
 max_result: 5
